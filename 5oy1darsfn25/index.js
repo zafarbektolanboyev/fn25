@@ -6,12 +6,12 @@
 //         var c = 3;
 //         console.log(a)
 //         console.log(b)
-//         console.log(c)  
+//         console.log(c)
 //     }
 //     inner()
 // }
 // outer()
-// //ichki funksiyalar tashqi global scoupdagi o'zgaruvchilar kira oladi. SHuning uchun inner funksiya ichida console.log(a) chaqirilganda javob chiqyapti. Tashqi funksiyalar ichki funksiyalarning scoupiga kira olmaydi. 
+// //ichki funksiyalar tashqi global scoupdagi o'zgaruvchilar kira oladi. SHuning uchun inner funksiya ichida console.log(a) chaqirilganda javob chiqyapti. Tashqi funksiyalar ichki funksiyalarning scoupiga kira olmaydi.
 
 // 2
 //console.log(x);//undefind
@@ -47,166 +47,140 @@
 // }
 // // for in siklda bor xususiyatini qiymatlarini olish mumkin for of esa massivning har bir elementini olish va ularni ishlatish mumkinligi
 
-                        // masalalar
-// 1
-// function transformWords(words) {
-//     return words
-//         .filter(word => word.length >= 5)
-//         .map(word => word.charAt(0).toUpperCase() + word.slice(1)); 
+// //setTimeout(function(){
+//     console.log("salom")
+// }, 2000)
+
+// let i = 1;
+// let interval = setInterval(function(){
+//     console.log(i)
+//     if(i == 10){
+//         clearInterval(interval)
 //     }
-// const words = ["apple", "banana", "pear", "grape", "kiwi", "peach", "plum"];
-// const transformedWords = transformWords(words);
-// console.log(transformedWords);
+//     i++;
+// }, 100)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // Masalalar
+// 1
+// let fruits = ['olma', 'anor', 'anjir', 'ananas', 'gilos'];
+
+// function setArr(arr) {
+//     let result = arr.filter(function(value){
+//         return value.length >= 5;
+//     })
+//     result = result.map(function(value){
+//         value = value.replace(value[0], value[0].toUpperCase())
+//         return value;
+//     })
+//     return result;
+// }
+// console.log(setArr(fruits))
+
+
 
 // 2
-// const students = [
-//     { name: 'Kamol', age: 21 },
-//     { name: 'Jasur', age: 22 },
-//     { name: 'Zafarbek', age: 20 }
-// ];
+// let students = [
+//     {name:"Jhon", age:"30"},
+//     {name:"Doe", age:"29"},
+//     {name:"Botir", age:"9"},
+//     {name:"OLim", age:"10"},
+// ]
 
-// function findAndCapitalizeFirstOver20(students) {
-//     const student = students.find(student => student.age > 20);
-//     if (student) {
-//         return student.name.toUpperCase();
+// const findStudents = function(arr){
+//     let result = arr.find(function(value){
+//         return value.age > 20
+//     });
+//     if(result){
+//         return result.name.toUppercase();
+//     }else{
+//         return "Yoshi 20 dan katta o'quvchi mavjud emas"
 //     }
-//     return null;
 // }
-// const result = findAndCapitalizeFirstOver20(students);
-// console.log(result);
+// console.log(findStudents(students))
 
 // 3
-// const prices = [50, 120, 200, 80, 150, 90];
-
-// function totalPrice100(prices) {
-//     const filteredPrices = prices.filter(price => price > 100);
-//     const total = filteredPrices.reduce((sum, price) => sum + price, 0);   
-//     return total;
-// }
-// const result = totalPrice100(prices);
-// console.log(result);
+// let prices = [200, 300, 500, 400];
+// let sum = 0;
+// prices.forEach(el =>{
+//     if(el > 100){
+//         sum += el
+//     }
+// })
+// console.log(sum)
 
 // 4
-// function checkNumbers(numbers) {
-//     const allPositive = numbers.every(num => num > 0);
-//     const hasLargeNumber = numbers.some(num => num > 100);
+// function isPositive(arr){
+//     let result = arr.every(function(value){
+//         return value > 0
+//     })
+
+//     let isExistOverHundred = arr.some(function(value){
+//         return value > 100
+//     })
     
-//     if (allPositive) {
-//         console.log("Barcha sonlar musbat");
-//     } else {
-//         console.log("Musbat bo'lmagan sonlar bor");
+//     if(isExistOverHundred){
+//         console.log("Katta son bor")
 //     }
-    
-//     if (hasLargeNumber) {
-//         console.log("Katta son bor");
+//     if(result){
+//         return "Barcha sonlar musbat"
+//     }else{
+//         return "Musbat bo'lmagan sonlar bor"
 //     }
 // }
-// const numbers1 = [10, 25, 30, 150];
-// const numbers2 = [10, -5, 30, 20];
-// const numbers3 = [5, 10, 15, 50];
+// console.log(isPositive([4,6,10,-1,20]));
 
-// checkNumbers(numbers1);
-// checkNumbers(numbers2);
-// checkNumbers(numbers3);
 
 // 5
-// function squareElementsWithMap(array) {
-//     return array.map(num => num * num);
+// let arr = [1,2,3,4,5];
+// function sqrtArray(arg){
+//     let result = arg.map(function(value){
+//         return value ** 2;
+//     })
+//     console.log(result)
 // }
-// function logArrayElements(array) {
-//   array.forEach(num => console.log(num));
-// }
-// const originalArray = [1, 2, 3, 4, 5];
-// const squaredArray = squareElementsWithMap(originalArray);
-// logArrayElements(squaredArray);
+// sqrtArray(arr)
 
 // 6
-// function calculateNewTotal(salaries) {
-//     const filteredSalaries = salaries.filter(salary => salary >= 2000);
-//     const increasedSalaries = filteredSalaries.map(salary => salary * 1.10);
-//     const totalNewSalary = increasedSalaries.reduce((total, salary) => total + salary, 0);
-//     return totalNewSalary;
+// let arr = [1400, 5000, 3000, 1000];
+// function salary(arr){
+//     let result = arr.map(function(value){
+//         if(value >= 2000){
+//             value = Math.floor(value * 1.1)
+//         }
+//         return value
+//     })
+//     return result
 // }
-// const salaries = [1500, 2100, 1800, 2400, 3000];
-// const newTotal = calculateNewTotal(salaries);
-// console.log(newTotal);
+// console.log(salary(arr))
 
 // 7
-// const students = [
-//     { name: 'Zafarbek', age: 19, score: 75 },
-//     { name: 'Jasur', age: 21, score: 85 },
-//     { name: 'Bekzod', age: 22, score: 95 },
-//     { name: 'Komila', age: 20, score: 70 }
-// ];
-
-// function findFirstHighScorer(students) {
-//     const firstHighScorer = students.find(student => student.score >= 80);
-    
-//     if (firstHighScorer) {
-//         return { name: firstHighScorer.name, age: firstHighScorer.age };
-//     }
-//     return null;
-// }
-
-// function getHighScorersNamesInUpperCase(students) {
-//     const highScorers = students.filter(student => student.score > 80);
-//     return highScorers.map(student => student.name.toUpperCase());
-// }
-// const firstHighScorer = findFirstHighScorer(students);
-// console.log(firstHighScorer);
-// const highScorersNames = getHighScorersNamesInUpperCase(students);
-// console.log(highScorersNames);
-
-// 8
-// function convertToUpperCase(str) {
-//     return str.toUpperCase();
-// }
-// const example1 = "hello world";
-// const example2 = "JavaScript is fun!";
-// const example3 = "salom web dasturchi";
-// console.log(convertToUpperCase(example1));
-// console.log(convertToUpperCase(example2));
-// console.log(convertToUpperCase(example3));
-
-// 9
-// function containsSubstring(str, substring) {
-//     return str.includes(substring);
-// }
-// const example1 = "Hello, world!";
-// const example2 = "JavaScript is fun!";
-// console.log(containsSubstring(example1, "world"));
-// console.log(containsSubstring(example2, "JavaScript"));
-
-// 10
-// function replaceJavaScriptWithJS(str) {
-//     return str.replaceAll("JavaScript", "JS");
-// }
-// const example1 = "I love JavaScript. JavaScript is awesome!";
-// const example2 = "JavaScript is a programming language. JavaScript frameworks are popular.";
-// const example3 = "Learning JavaScript can be fun.";
-
-// console.log(replaceJavaScriptWithJS(example1));
-// console.log(replaceJavaScriptWithJS(example2));
-// console.log(replaceJavaScriptWithJS(example3));
-
-// 11
-// function reverseWordsInString(str) {
-//     const wordsArray = str.split(' ');
-//     const reversedWordsArray = wordsArray.reverse();
-//     const reversedString = reversedWordsArray.join(' ');
-//     return reversedString;
-// }
-// const example1 = "hello programist";
-// const example2 = "hello world";
-
-// console.log(reverseWordsInString(example1));
-// console.log(reverseWordsInString(example2));
-
-// 12
-// function trimWhitespace(str) {
-//     return str.trim();
-// }
-// const example1 = "   Hello, world!   ";
-// const example2 = "   salom bo'lajak dastuchilar    ";
-// console.log(trimWhitespace(example1));
-// console.log(trimWhitespace(example2));
+let students  = [
+    {name:"Zafarbek", yoshi:17, ball:90},
+    {name:"Okifxon", yoshi:17, ball:85},
+    {name:"Shuhratbek", yoshi:17, ball:60},
+    {name:"Saydilo", yoshi:17, ball:80},
+    {name:"Ozodbek", yoshi:11, ball:20},
+]
+function findStudent(arr){
+    let result = arr.find(function(value) {
+        return value.ball >= 80
+    })
+    let sucess = arr.filter(function(value) {
+        return value.ball >= 80
+    })
+    console.log(sucess);
+    return (result.name, result.yoshi)
+}
+console.log(findStudent(students));
